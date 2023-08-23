@@ -78,3 +78,26 @@ h1::before {
 .taskList li.checked::before {
   content: "\2713"; /* Unicode for checked checkbox */
 }
+@media screen and (max-width: 768px) {
+  /* Adjust styles for screens up to 768px width */
+  .container {
+    padding: 1rem;
+  }
+  .addtask {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    max-width: calc(100% - 2rem); /* Added max-width to prevent overflow */
+  }
+  #inputBar {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  .addBtn {
+    margin: 1rem 0;
+    width: 100%;
+  }
+}
