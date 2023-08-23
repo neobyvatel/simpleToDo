@@ -1,0 +1,80 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Chivo", sans-serif;
+  background: rgb(36, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(36, 0, 0, 1) 0%,
+    rgba(107, 48, 99, 1) 52%,
+    rgba(80, 0, 255, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+ul li.checked {
+  text-decoration: line-through;
+}
+ul li {
+  list-style-type: none;
+}
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  max-width: 1200px; /* Adjust the maximum width as needed */
+  width: 90%;
+}
+.addtask {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+}
+#inputBar {
+  border: 1px solid black;
+  outline: 1px solid purple;
+  border-radius: 0.5rem;
+  width: 80%;
+  margin-left: 1rem;
+  padding: 1rem;
+}
+#inputBar::placeholder {
+  font-family: "Courier New", monospace;
+}
+.addBtn {
+  border: 1px solid purple;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  display: inline-block;
+  background-color: white;
+  margin: 1rem 0.5rem 1rem 1rem; /* Add left margin here */
+  padding: 0.97rem;
+  width: 11.5rem;
+  cursor: pointer;
+}
+.addBtn:hover {
+  background-color: #d9dbda;
+}
+
+#inputBar[type="text"] {
+  font-family: "Chivo", sans-serif;
+}
+h1::before {
+  content: "\2713"; /* Unicode for checkbox emoji */
+  margin-right: 0.5rem;
+}
+.taskList li::before {
+  content: "\2610"; /* Unicode for empty checkbox */
+  margin-right: 0.5rem;
+}
+.taskList li.checked::before {
+  content: "\2713"; /* Unicode for checked checkbox */
+}
