@@ -37,11 +37,11 @@ body {
   margin-right: 10px;
 }
 
-ul .checked {
+#todo-list .checked {
   text-decoration: line-through;
 }
 #todo-list {
-  margin-top: 20px;
+  margin-top: 0px;
   list-style: none;
   padding: 0;
   overflow-y: auto;
