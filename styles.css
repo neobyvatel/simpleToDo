@@ -2,12 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Chivo", sans-serif;
-  background: rgb(2, 0, 36);
+  background: rgb(0, 3, 36);
   background: linear-gradient(
     90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 32, 121, 1) 50%,
-    rgba(166, 0, 255, 1) 100%
+    rgba(0, 3, 36, 1) 0%,
+    rgba(51, 48, 107, 1) 52%,
+    rgba(0, 104, 255, 1) 100%
   );
   display: flex;
   justify-content: center;
@@ -29,39 +29,74 @@ body {
   color: #002b70;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .container img {
   width: 44px;
   height: 44px;
   margin-right: 10px;
 }
-ul {
-  list-style-type: none;
-}
+
 ul .checked {
   text-decoration: line-through;
 }
-@media screen and (max-width: 768px) {
-  /* Adjust styles for screens up to 768px width */
-  .container {
-    padding: 1rem;
-  }
-  .addtask {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    max-width: calc(100% - 2rem); /* Added max-width to prevent overflow */
-  }
-  #inputBar {
-    width: 100%;
-    margin: 1rem 0;
-  }
-  .addBtn {
-    margin: 1rem 0;
-    width: 100%;
-  }
+#todo-list {
+  list-style: none;
+  padding: 0;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+#todo-list li {
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+  margin: 0;
+}
+
+#todo-list li:last-child {
+  border-bottom: none;
+}
+#todo-list li:nth-child(even) {
+  border-bottom: 1px solid #d6d6d6;
+}
+
+#todo-list li:nth-child(odd) {
+  border-bottom: 1px solid #979899;
+}
+#todo-list li:last-child {
+  border-bottom: none;
+}
+
+.addTask {
+  font-family: monospace;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none; /* Optional: Removes the default focus outline */
+  width: 55%;
+}
+
+.addBtn {
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 25px;
+  display: inline-block;
+  transform: translateY(2px);
+
+  padding-right: 5px;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #005fdb;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
 }
