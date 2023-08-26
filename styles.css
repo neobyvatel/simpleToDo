@@ -22,7 +22,7 @@ body {
   max-width: 550px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 0.7rem;
-  padding: 40px 30px 70px;
+  padding: 40px 30px 20px;
   background: #fff;
 }
 .container h2 {
@@ -41,30 +41,36 @@ ul .checked {
   text-decoration: line-through;
 }
 #todo-list {
+  margin-top: 20px;
   list-style: none;
   padding: 0;
   overflow-y: auto;
-  max-height: 200px;
+  max-height: 240px;
 }
 
 #todo-list li {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #d6d6d6;
   padding: 10px 0;
   margin: 0;
+  transition: background-color 0.3s ease; /* Add smooth transition for background color */
+}
+#todo-list li:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+}
+ul .icon {
+  margin: 0 10px 0;
+  width: 20px;
+  height: 20px;
+  transform: translateY(4px);
+  transition: transform 0.2s ease;
 }
 
 #todo-list li:last-child {
   border-bottom: none;
 }
-#todo-list li:nth-child(even) {
-  border-bottom: 1px solid #d6d6d6;
-}
 
-#todo-list li:nth-child(odd) {
-  border-bottom: 1px solid #979899;
-}
-#todo-list li:last-child {
-  border-bottom: none;
+.icon:hover {
+  transform: scale(1.1); /* Add slight scale increase on hover */
 }
 
 .addTask {
