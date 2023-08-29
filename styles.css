@@ -51,7 +51,8 @@ body {
   outline: none;
   background: transparent;
   padding: 10px;
-  color: white;
+  color: black;
+  font-family: monospace;
 }
 #inputBox::placeholder {
   color: black;
