@@ -115,6 +115,23 @@ ul li:last-child {
   border-bottom: none;
 }
 
+ul li span {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 43px;
+  height: 44px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+  transform: translateY(-1px);
+}
+ul li span:hover {
+  background-color: #cccdcf;
+}
+
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 16px;
