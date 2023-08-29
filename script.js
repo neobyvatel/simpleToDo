@@ -4,7 +4,7 @@ const inputBox = document.getElementById("inputBox");
 
 function newElement() {
   if (inputBox.value === "") {
-    alert("Invalid input.");
+    showSnackBar();
   } else {
     let li = document.createElement("li");
     li.innerHTML = inputBox.value;
@@ -43,3 +43,16 @@ function showTask() {
   list.innerHTML = localStorage.getItem("data");
 }
 showTask();
+
+function showSnackBar() {
+  // Get the snackbar DIV
+  let x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 3000);
+}

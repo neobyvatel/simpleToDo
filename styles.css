@@ -2,31 +2,33 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Chivo", sans-serif;
-  background: rgb(0, 3, 36);
+  background: rgb(255, 64, 52);
   background: linear-gradient(
     90deg,
-    rgba(0, 3, 36, 1) 0%,
-    rgba(51, 48, 107, 1) 52%,
+    rgba(255, 64, 52, 1) 0%,
+    rgba(174, 149, 80, 1) 19%,
+    rgba(252, 138, 0, 1) 27%,
+    rgba(234, 101, 13, 1) 57%,
+    rgba(243, 102, 102, 1) 76%,
     rgba(0, 104, 255, 1) 100%
   );
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   min-height: 100vh;
   box-sizing: border-box;
 }
 
 .container {
   background-color: rgba(255, 255, 255, 0.9);
+  margin: 100px auto 20px;
   width: 100%;
   max-width: 550px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 0.7rem;
   padding: 40px 30px 20px;
-  background: #fff;
+  background: #3b3a3a;
 }
 .container h2 {
-  color: #002b70;
+  color: #d1d1d1;
   display: flex;
   align-items: center;
   margin-bottom: 40px;
@@ -40,7 +42,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #edeef0;
+  background: #ea650d;
   border-radius: 30px;
   padding-left: 20px;
   margin-bottom: 25px;
@@ -51,6 +53,10 @@ body {
   outline: none;
   background: transparent;
   padding: 10px;
+  color: white;
+}
+#inputBox::placeholder {
+  color: black;
 }
 button {
   border: none;
@@ -61,6 +67,7 @@ button {
   color: #fff;
   cursor: pointer;
   font-size: 1rem;
+  background-color: black;
 }
 
 ul {
@@ -78,9 +85,10 @@ ul li {
   cursor: pointer;
   transition: background-color 0.3s ease;
   position: relative;
+  color: #d1d1d1;
 }
 ul li:hover {
-  background-color: #f0f0f0; /* Change background color on hover */
+  background-color: #303030; /* Change background color on hover */
 }
 ul li::before {
   content: "";
@@ -88,7 +96,8 @@ ul li::before {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background-image: url("images/unchecked.png");
+  background-image: url("images/unchecked.svg");
+
   background-size: cover;
   background-position: center;
   top: 8px;
@@ -96,7 +105,7 @@ ul li::before {
 }
 ul .checked {
   text-decoration: line-through;
-  color: #555;
+  color: #919191;
 }
 ul .checked::before {
   content: "";
@@ -104,7 +113,7 @@ ul .checked::before {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background-image: url("images/checked.png");
+  background-image: url("images/checked.svg");
   background-size: cover;
   background-position: center;
   top: 8px;
@@ -122,7 +131,7 @@ ul li span {
   width: 43px;
   height: 44px;
   font-size: 22px;
-  color: #555;
+  color: black;
   line-height: 40px;
   text-align: center;
   transition: background-color 0.3s ease-in-out;
@@ -132,17 +141,88 @@ ul li span:hover {
   background-color: #cccdcf;
 }
 
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 16px;
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #919191;
 }
 
-*::-webkit-scrollbar-track {
-  background: #ffffff;
+*::-webkit-scrollbar {
+  width: 12px;
+  background-color: #3b3a3a;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #005fdb;
   border-radius: 10px;
-  border: 3px solid #ffffff;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
