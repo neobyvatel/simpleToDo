@@ -16,18 +16,16 @@
   </head>
   <body>
     <div class="container">
-      <div class="createTask">
-        <h2><img src="images/icon.png" alt="" /> To-Do List</h2>
-        <span onclick="newElement()" class="addBtn">+</span>
-        <input
-          type="text"
-          class="addTask"
-          id="inputBox"
-          placeholder="Enter new task here..."
-        />
+      <h2><img src="images/icon.png" alt="" /> To-Do List</h2>
+      <div class="row">
+        <input type="text" id="inputBox" placeholder="Enter new task here..." />
+        <button onclick="newElement()">Add</button>
       </div>
 
-      <ul id="todo-list"></ul>
+      <ul id="todo-list">
+        <li>unchecked</li>
+        <li class="checked">checked</li>
+      </ul>
     </div>
     <script src="script.js"></script>
   </body>
