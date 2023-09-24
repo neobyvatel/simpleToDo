@@ -1,6 +1,9 @@
 "use strict";
+
 const list = document.getElementById("todo-list");
 const inputBox = document.getElementById("inputBox");
+const toggleAllButton = document.querySelector(".toggle-all");
+const deleteAllButton = document.querySelector(".remove-all-tasks");
 
 function newElement() {
   if (inputBox.value === "") {
@@ -14,7 +17,6 @@ function newElement() {
     li.append(span);
   }
   inputBox.value = "";
-  saveData();
 }
 inputBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -27,22 +29,12 @@ list.addEventListener(
   (e) => {
     if (e.target.tagName === "LI") {
       e.target.classList.toggle("checked");
-      saveData();
     } else if (e.target.tagName === "SPAN") {
       e.target.parentElement.remove();
-      saveData();
     }
   },
   false
 );
-
-function saveData() {
-  localStorage.setItem("data", list.innerHTML);
-}
-function showTask() {
-  list.innerHTML = localStorage.getItem("data");
-}
-showTask();
 
 function showSnackBar() {
   // Get the snackbar DIV
@@ -56,3 +48,39 @@ function showSnackBar() {
     x.className = x.className.replace("show", "");
   }, 3000);
 }
+
+const listItems = list.children;
+function toggleAll() {
+  let checked = 0;
+  let unchecked = 0;
+  let listItem;
+  for (let i = 0; i < listItems.length; i++) {
+    listItem = listItems[i];
+    if (listItem.classList.contains("checked")) {
+      checked++;
+    } else unchecked++;
+  }
+
+  if (checked > unchecked) {
+    for (let i = 0; i < listItems.length; i++) {
+      listItem = listItems[i];
+      listItem.classList.remove("checked");
+    }
+  } else {
+    for (let i = 0; i < listItems.length; i++) {
+      listItem = listItems[i];
+      if (!listItem.classList.contains("checked")) {
+        listItem.classList.add("checked");
+      }
+    }
+  }
+}
+
+function removeAll() {
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+}
+
+toggleAllButton.addEventListener("click", toggleAll);
+deleteAllButton.addEventListener("click", removeAll);

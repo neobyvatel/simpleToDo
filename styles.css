@@ -58,7 +58,7 @@ body {
   color: black;
   font-family: monospace;
 }
-button {
+.button-1 {
   font-family: monospace;
   border: 1px solid #d1d1d1;
   outline: none;
@@ -72,7 +72,7 @@ button {
   transition: -webkit-box-shadow 0.5s ease-in-out,
     -moz-box-shadow 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
-button:hover {
+.button-1:hover {
   -webkit-box-shadow: 0px 0px 36px -14px rgba(209, 209, 209, 1);
   -moz-box-shadow: 0px 0px 36px -14px rgba(209, 209, 209, 1);
   box-shadow: 0px 0px 36px -14px rgba(209, 209, 209, 1);
@@ -234,5 +234,26 @@ ul li span:hover {
   to {
     bottom: 0;
     opacity: 0;
+  }
+}
+.control-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.control-container button {
+  display: inline-block;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 30px;
+  background-color: #555;
+  color: #d1d1d1;
+  padding: 0 10px;
+  :hover {
+    background-color: #0000001a;
   }
 }
